@@ -53,7 +53,16 @@ public class CountryService {
 	
 
 	public Country getCountryById(int id) {
-		return repository.findById(id).get();
+		
+		List<Country> countries=repository.findAll();
+		Country country=null;
+		for(Country con: countries) {
+			if(con.getId()==id) {
+				country=con;
+			}
+		}
+		return country;
+		
 	}
 	
 	
